@@ -4,7 +4,7 @@ import { company } from "@/data/company";
 
 export function WhyAndes() {
   return (
-    <section className="bg-bg-light py-20 sm:py-28">
+    <section className="bg-bg-light py-14 sm:py-28">
       <Container>
         <SectionHeader eyebrow="Why Andes" title="Why Choose Andes?" align="center" className="mx-auto" />
 

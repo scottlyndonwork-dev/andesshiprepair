@@ -4,7 +4,7 @@ import { PlaceholderVisual } from "@/components/ui/PlaceholderVisual";
 
 export default function NotFound() {
   return (
-    <div className="flex min-h-[70vh] items-center py-20">
+    <div className="flex min-h-[70vh] items-center py-14 sm:py-20">
       <Container>
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
           <PlaceholderVisual icon="Anchor" tone="deep" className="aspect-[4/3] rounded-md" label="404" />

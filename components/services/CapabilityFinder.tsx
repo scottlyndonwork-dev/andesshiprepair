@@ -12,7 +12,7 @@ export function CapabilityFinder() {
   const active = capabilityFinderCategories.find((c) => c.id === activeId)!;
 
   return (
-    <section id="capabilities" className="scroll-mt-24 bg-bg-light py-20 sm:py-28">
+    <section id="capabilities" className="scroll-mt-24 bg-bg-light py-14 sm:py-28">
       <Container>
         <SectionHeader
           eyebrow="Capability Finder"
@@ -20,11 +20,11 @@ export function CapabilityFinder() {
           description="Select a category to see the relevant technical capabilities."
         />
 
-        <div className="mt-10 grid gap-8 lg:grid-cols-[280px_1fr]">
+        <div className="mt-10 grid min-w-0 gap-8 lg:grid-cols-[280px_1fr]">
           <div
             role="tablist"
             aria-label="Capability categories"
-            className="flex gap-2 overflow-x-auto pb-2 lg:flex-col lg:overflow-visible lg:pb-0"
+            className="no-scrollbar min-w-0 flex snap-x snap-mandatory gap-2 overflow-x-auto pb-2 lg:flex-col lg:overflow-visible lg:pb-0"
           >
             {capabilityFinderCategories.map((cat) => (
               <button
@@ -33,7 +33,7 @@ export function CapabilityFinder() {
                 aria-selected={activeId === cat.id}
                 onClick={() => setActiveId(cat.id)}
                 className={cn(
-                  "focus-ring shrink-0 rounded-sm border px-4 py-3 text-left text-sm font-semibold whitespace-nowrap transition-colors lg:whitespace-normal",
+                  "focus-ring shrink-0 snap-start rounded-sm border px-4 py-3 text-left text-sm font-semibold whitespace-nowrap transition-colors lg:whitespace-normal",
                   activeId === cat.id
                     ? "border-blue bg-blue text-white"
                     : "border-navy/10 bg-white text-navy hover:border-blue/40"

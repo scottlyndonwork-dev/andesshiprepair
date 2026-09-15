@@ -28,7 +28,7 @@ const serviceLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-navy-deep pb-24 pt-16 text-white lg:pb-16">
+    <footer className="bg-navy-deep pb-[calc(4.5rem+env(safe-area-inset-bottom,0px))] pt-16 text-white lg:pb-16">
       <Container>
         <div className="mb-12 flex flex-col items-start justify-between gap-8 border-b border-white/10 pb-12 lg:flex-row lg:items-end">
           <div>

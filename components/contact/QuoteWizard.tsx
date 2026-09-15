@@ -176,7 +176,24 @@ export function QuoteWizard() {
 
   return (
     <div>
-      <ol className="mb-10 flex flex-wrap gap-2">
+      {/* Mobile: compact progress bar + current step label */}
+      <div className="mb-8 sm:hidden">
+        <div className="flex items-center justify-between text-xs font-semibold text-steel">
+          <span>
+            Step {step + 1} of {steps.length}
+          </span>
+          <span className="text-navy">{steps[step]}</span>
+        </div>
+        <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-navy/10">
+          <div
+            className="h-full rounded-full bg-blue transition-all duration-300"
+            style={{ width: `${((step + 1) / steps.length) * 100}%` }}
+          />
+        </div>
+      </div>
+
+      {/* Tablet/desktop: full step chip row */}
+      <ol className="mb-10 hidden flex-wrap gap-2 sm:flex">
         {steps.map((label, i) => (
           <li
             key={label}
@@ -190,7 +207,7 @@ export function QuoteWizard() {
             )}
           >
             <span>{i + 1}</span>
-            <span className="hidden sm:inline">{label}</span>
+            <span>{label}</span>
           </li>
         ))}
       </ol>

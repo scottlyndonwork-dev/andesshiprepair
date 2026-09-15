@@ -5,7 +5,7 @@ import { company } from "@/data/company";
 
 export function WorkLocations() {
   return (
-    <section className="py-20 sm:py-28">
+    <section className="py-14 sm:py-28">
       <Container>
         <SectionHeader
           eyebrow="Shipboard Repair"

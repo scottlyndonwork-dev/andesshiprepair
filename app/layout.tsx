@@ -3,7 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { MobileBottomBar } from "@/components/layout/MobileBottomBar";
+import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
+import { PageTransition } from "@/components/layout/PageTransition";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${inter.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-white text-text-dark">
+      <body className="min-h-full flex flex-col overflow-x-hidden bg-white text-text-dark">
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-sm focus:bg-navy focus:px-4 focus:py-2 focus:text-white"
@@ -44,11 +45,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           Skip to content
         </a>
         <Navbar />
-        <main id="main-content" className="flex-1 pb-16 lg:pb-0">
-          {children}
+        <main
+          id="main-content"
+          className="min-w-0 flex-1 pb-[calc(4.5rem+env(safe-area-inset-bottom,0px))] lg:pb-0"
+        >
+          <PageTransition>{children}</PageTransition>
         </main>
         <Footer />
-        <MobileBottomBar />
+        <MobileBottomNav />
       </body>
     </html>
   );

@@ -39,7 +39,7 @@ export default async function ServiceDetailPage({
 
   return (
     <div className="pb-20 sm:pb-28">
-      <div className="relative overflow-hidden bg-navy-deep pt-32 pb-16">
+      <div className="relative overflow-hidden bg-navy-deep pt-28 pb-12 sm:pt-32 sm:pb-16">
         <div className="technical-grid absolute inset-0" />
         <Container className="relative">
           <nav aria-label="Breadcrumb" className="mb-5 text-xs text-white/50">

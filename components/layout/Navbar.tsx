@@ -12,6 +12,7 @@ import { MobileMenu } from "@/components/layout/MobileMenu";
 import { LOGO_SRC } from "@/lib/assets";
 
 const navLinks = [
+  { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Vessels", href: "/vessels" },
   { label: "Projects", href: "/projects" },
@@ -113,7 +114,7 @@ export function Navbar() {
                           <li key={link.label}>
                             <Link
                               href={`/services/${link.slug}`}
-                              className="focus-ring text-sm text-white/75 hover:text-white"
+                              className="focus-ring text-sm text-white/75 hover:text-gold"
                             >
                               {link.label}
                             </Link>
@@ -137,7 +138,7 @@ export function Navbar() {
         </div>
 
         <button
-          className="focus-ring rounded-sm p-2 text-white lg:hidden"
+          className="focus-ring flex h-11 w-11 touch-manipulation items-center justify-center rounded-sm text-white active:bg-white/10 lg:hidden"
           onClick={() => setMobileOpen(true)}
           aria-label="Open menu"
         >

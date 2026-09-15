@@ -25,7 +25,7 @@ export function ProcessTimeline() {
   });
 
   return (
-    <section className="py-20 sm:py-28">
+    <section className="py-14 sm:py-28">
       <Container>
         <SectionHeader eyebrow="Project Process" title="From Inspection to Handover." />
 

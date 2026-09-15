@@ -1,9 +1,10 @@
 "use client";
 
+import Link from "next/link";
 import { Ship, Cog, Flame, Wrench, Waves, Zap, ShieldCheck, Settings, LucideIcon } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { company } from "@/data/company";
-import { capabilityFinderCategories } from "@/data/services";
+import { capabilityFinderCategories, getServiceBySlug } from "@/data/services";
 
 const icons: Record<string, LucideIcon> = {
   "Ship Repair": Ship,
@@ -14,6 +15,17 @@ const icons: Record<string, LucideIcon> = {
   Mechanical: Settings,
   Electrical: Zap,
   "Marine Maintenance": ShieldCheck,
+};
+
+const linkSource: Record<string, string> = {
+  "Ship Repair": "hull-structural-repair",
+  "Marine Engineering": "shafting-bearing-propulsion",
+  "Hull & Steel Fabrication": "welding-fabrication",
+  Machining: "machining",
+  Piping: "piping-valve-works",
+  Mechanical: "machinery-repair-maintenance",
+  Electrical: "marine-electrical",
+  "Marine Maintenance": "blasting-painting-preservation",
 };
 
 const captionSource: Record<string, string> = {
@@ -32,16 +44,39 @@ function caption(item: string) {
   return capabilityFinderCategories.find((c) => c.id === id)?.items.slice(0, 3).join(" · ") ?? "";
 }
 
+function href(item: string) {
+  const slug = linkSource[item];
+  return getServiceBySlug(slug) ? `/services/${slug}` : "/services";
+}
+
 export function HeroCapabilityStrip() {
   return (
     <div className="relative z-10 border-b border-navy/10 bg-navy py-5">
       <Container>
-        <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 sm:justify-between">
+        {/* Mobile: horizontal snap-scroll row of tappable chips */}
+        <div className="no-scrollbar -mx-5 flex snap-x snap-mandatory gap-2 overflow-x-auto px-5 sm:hidden">
           {company.capabilityStrip.map((item) => {
             const Icon = icons[item] ?? Ship;
             return (
-              <div key={item} className="group relative">
-                <span className="flex items-center gap-2.5 text-xs font-semibold tracking-[0.15em] text-white/80 uppercase transition-colors group-hover:text-cyan sm:text-sm">
+              <Link
+                key={item}
+                href={href(item)}
+                className="focus-ring flex shrink-0 snap-start items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2.5 text-xs font-semibold whitespace-nowrap text-white/85 uppercase transition-colors active:bg-white/15"
+              >
+                <Icon className="h-3.5 w-3.5 shrink-0 text-cyan" strokeWidth={1.5} />
+                {item}
+              </Link>
+            );
+          })}
+        </div>
+
+        {/* Desktop/tablet: wrapped row with hover caption */}
+        <div className="hidden flex-wrap items-center justify-center gap-x-8 gap-y-4 sm:flex sm:justify-between">
+          {company.capabilityStrip.map((item) => {
+            const Icon = icons[item] ?? Ship;
+            return (
+              <Link key={item} href={href(item)} className="group relative">
+                <span className="flex items-center gap-2.5 text-sm font-semibold tracking-[0.15em] text-white/80 uppercase transition-colors group-hover:text-cyan">
                   <Icon className="h-4 w-4 shrink-0 text-cyan" strokeWidth={1.5} />
                   {item}
                 </span>
@@ -51,7 +86,7 @@ export function HeroCapabilityStrip() {
                 >
                   {caption(item)}
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>

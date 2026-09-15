@@ -26,7 +26,7 @@ export function ProjectGallery({ preview = false }: { preview?: boolean }) {
   const items = preview ? services.slice(0, 6) : services;
 
   return (
-    <section className="py-20 sm:py-28">
+    <section className="py-14 sm:py-28">
       <Container>
         <SectionHeader
           eyebrow="Capabilities & Work Gallery"

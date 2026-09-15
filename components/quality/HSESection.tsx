@@ -5,7 +5,7 @@ import { hseItems } from "@/data/quality";
 
 export function HSESection() {
   return (
-    <section className="bg-navy py-20 sm:py-28">
+    <section className="bg-navy py-14 sm:py-28">
       <Container>
         <SectionHeader
           eyebrow="Health, Safety & Environment"

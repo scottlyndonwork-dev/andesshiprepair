@@ -18,7 +18,7 @@ export const metadata: Metadata = pageMetadata({
 export default function AboutPage() {
   return (
     <div className="pb-20 sm:pb-28">
-      <div className="relative overflow-hidden bg-navy-deep pt-32 pb-16">
+      <div className="relative overflow-hidden bg-navy-deep pt-28 pb-12 sm:pt-32 sm:pb-16">
         <div className="technical-grid absolute inset-0" />
         <Container className="relative">
           <p className="mb-4 text-xs font-semibold tracking-[0.25em] text-cyan uppercase">
@@ -30,7 +30,7 @@ export default function AboutPage() {
         </Container>
       </div>
 
-      <Container className="mt-16">
+      <Container className="mt-12 sm:mt-16">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <PlaceholderVisual icon="Ship" tone="navy" className="aspect-[4/3] rounded-md" label="Company Overview" />
           <div>
@@ -42,7 +42,7 @@ export default function AboutPage() {
         </div>
       </Container>
 
-      <Container className="mt-20">
+      <Container className="mt-12 sm:mt-20">
         <div className="grid gap-6 sm:grid-cols-2">
           <div className="rounded-md border border-navy/10 bg-bg-light p-8">
             <Eye className="h-6 w-6 text-blue" />
@@ -64,7 +64,7 @@ export default function AboutPage() {
         </div>
       </Container>
 
-      <Container className="mt-20">
+      <Container className="mt-12 sm:mt-20">
         <SectionHeader
           eyebrow="Core Capabilities"
           title="A Multi-Discipline Marine Repair Provider"
@@ -82,7 +82,7 @@ export default function AboutPage() {
         </div>
       </Container>
 
-      <Container className="mt-20">
+      <Container className="mt-12 sm:mt-20">
         <SectionHeader
           eyebrow="Workforce"
           title="Skilled, Multi-Disciplinary Personnel"
@@ -101,14 +101,14 @@ export default function AboutPage() {
         <p className="mt-5 text-sm leading-relaxed text-steel">{company.workforceNote}</p>
       </Container>
 
-      <Container className="mt-20">
+      <Container className="mt-12 sm:mt-20">
         <SectionHeader eyebrow="Leadership" title="Leadership Team" />
         <div className="mt-10">
           <LeadershipGrid />
         </div>
       </Container>
 
-      <Container className="mt-20">
+      <Container className="mt-12 sm:mt-20">
         <div className="rounded-md bg-navy p-10 sm:p-14">
           <h2 className="text-center text-2xl font-bold tracking-tight text-white sm:text-3xl">
             Our Commitment

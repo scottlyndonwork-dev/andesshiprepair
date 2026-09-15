@@ -5,7 +5,7 @@ import { emergencyServices, emergencyNote } from "@/data/emergency";
 
 export function EmergencyCTA() {
   return (
-    <section className="relative overflow-hidden bg-navy-deep py-20 sm:py-24">
+    <section className="relative overflow-hidden bg-navy-deep py-14 sm:py-24">
       <div className="absolute inset-y-0 left-0 w-1.5 bg-danger" />
       <Container>
         <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
