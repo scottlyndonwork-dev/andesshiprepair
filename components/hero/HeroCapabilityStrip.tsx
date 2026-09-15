@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Ship, Cog, Flame, Wrench, Waves, Zap, ShieldCheck, Settings, LucideIcon } from "lucide-react";
 import { Container } from "@/components/ui/Container";
+import { Marquee } from "@/components/ui/Marquee";
 import { company } from "@/data/company";
 import { capabilityFinderCategories, getServiceBySlug } from "@/data/services";
 
@@ -53,21 +54,23 @@ export function HeroCapabilityStrip() {
   return (
     <div className="relative z-10 border-b border-navy/10 bg-navy py-5">
       <Container>
-        {/* Mobile: horizontal snap-scroll row of tappable chips */}
-        <div className="no-scrollbar -mx-5 flex snap-x snap-mandatory gap-2 overflow-x-auto px-5 sm:hidden">
-          {company.capabilityStrip.map((item) => {
-            const Icon = icons[item] ?? Ship;
-            return (
-              <Link
-                key={item}
-                href={href(item)}
-                className="focus-ring flex shrink-0 snap-start items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2.5 text-xs font-semibold whitespace-nowrap text-white/85 uppercase transition-colors active:bg-white/15"
-              >
-                <Icon className="h-3.5 w-3.5 shrink-0 text-cyan" strokeWidth={1.5} />
-                {item}
-              </Link>
-            );
-          })}
+        {/* Mobile: continuous auto-scrolling ticker of tappable chips */}
+        <div className="-mx-5 sm:hidden">
+          <Marquee durationSeconds={22} gap="gap-2">
+            {company.capabilityStrip.map((item) => {
+              const Icon = icons[item] ?? Ship;
+              return (
+                <Link
+                  key={item}
+                  href={href(item)}
+                  className="focus-ring flex shrink-0 items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2.5 text-xs font-semibold whitespace-nowrap text-white/85 uppercase transition-colors active:bg-white/15"
+                >
+                  <Icon className="h-3.5 w-3.5 shrink-0 text-cyan" strokeWidth={1.5} />
+                  {item}
+                </Link>
+              );
+            })}
+          </Marquee>
         </div>
 
         {/* Desktop/tablet: wrapped row with hover caption */}
